@@ -1,4 +1,4 @@
-(this repo is a clone of https://github.com/heremel/Project-2, juste to handle github page publication issues. Contrary to appearances, it is not the only work of LaurentKatsesSandalman but the product of a joint work with heremel and ErnestDaph)
+(This repo is a clone of https://github.com/heremel/Project-2, juste to handle github page publication issues. Contrary to appearances, it is not the only work of LaurentKatsesSandalman but the product of a joint work with heremel and ErnestDaph.)
 
 DiPiRi
 (Dream, Plan, Rembember)
