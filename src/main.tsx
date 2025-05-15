@@ -1,7 +1,7 @@
 import "./index.css";
 import App from "./App.tsx";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ListOfItems from "./components/ListOfItems.tsx";
 import ListOfFavoriteItems from "./components/ListOfFavoriteItems.tsx";
 import About from "./components/About.tsx";
@@ -24,12 +24,16 @@ const router = createBrowserRouter([
         element: <DetailedItem />,
       },
       {
-        path: "/favorite",
-        element: <ListOfFavoriteItems />,
-      },
-    ],
-  },
-]);
+    path: "/favorite",
+          element: <ListOfFavoriteItems />,
+        },
+      ],
+    },
+  ],
+  {
+    basename: "/Project-2-pages", // 👈 Ajoute ceci
+  }
+);
 
 const rootElement = document.getElementById("root");
 
