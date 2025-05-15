@@ -8,6 +8,13 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 import arrowImage from "../assets/pictogram/picto_arrow.svg";
 import mainCurrencyImage from "../assets/pictogram/picto_mainCurrency.svg";
+import approvedPicto from "../assets/pictogram/picto_approved.svg";
+import reflexionBubblePicto from "../assets/pictogram/picto_reflexionBubble.svg";
+import coldThermometer from "../assets/pictogram/picto_coldThermometer.svg";
+import hotThermometer from "../assets/pictogram/picto_hotThermometer.svg";
+import neutralThermometer from "../assets/pictogram/picto_neutralThermometer.svg";
+import wavePicto from "../assets/pictogram/picto_wave.svg";
+import googleLocalisation from "../assets/pictogram/picto_googleLocalisation.svg";
 
 function DetailedItem() {
 	const { location_id } = useParams<{ location_id: string }>();
@@ -25,7 +32,7 @@ function DetailedItem() {
 
 	const [food, setFood] = useState(defaultFood);
 
-	const urlFood = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country.demonyms.eng.masc}`;
+	const urlFood = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country?.demonyms.eng.masc}`;
 
 	const { favoriteList, setFavoriteList } = useCountries();
 
@@ -107,7 +114,9 @@ function DetailedItem() {
 
 	return (
 		<>
-			<Link className={styles.linkTo} to={initialPage}><img className={styles.arrowImg} alt="Cross Pictogram" src={arrowImage} /></Link>
+			<Link className={styles.linkTo} to={initialPage}>
+				<img className={styles.arrowImg} alt="Cross Pictogram" src={arrowImage} />
+			</Link>
 			<div className={styles.checkBoxes}>
 				<div className={styles.inLine}>
 					<input
@@ -117,7 +126,7 @@ function DetailedItem() {
 						onChange={() => handleChangeMemories(country.location_id)}
 					/>
 					<label htmlFor="memories">Add to your memories</label>
-					<img alt="Approved Pictogram" src="/src/assets/pictogram/picto_approved.svg" className={styles.miniPicto} />
+					<img alt="Approved Pictogram" src={approvedPicto} className={styles.miniPicto} />
 				</div>
 				<div className={styles.inLine}>
 					<input
@@ -127,7 +136,7 @@ function DetailedItem() {
 						onChange={() => handleChangeDreams(country.location_id)}
 					/>
 					<label htmlFor="dreams">Add to your dreams</label>
-					<img alt="Reflexion Bubble Pictogram" src="/src/assets/pictogram/picto_reflexionBubble.svg" className={styles.miniPicto} />
+					<img alt="Reflexion Bubble Pictogram" src={reflexionBubblePicto} className={styles.miniPicto} />
 				</div>
 			</div>
 			<img
@@ -142,23 +151,19 @@ function DetailedItem() {
 						<p>Subregion: {country.subregion}, {country.region} </p>
 						<p>Languages: {country.languages.join(", ")}</p>
 						<p className={styles.miniP}>Capital: {country.capital}</p>
-						<p className={styles.miniP}><img alt="Cold Thermometer Pictogram" src="/src/assets/pictogram/picto_coldThermometer.svg" className={styles.miniPicto} />: {weatherMinTemp}°C</p>
-						<p className={styles.miniP}><img alt="Hot Thermometer Pictogram" src="/src/assets/pictogram/picto_hotThermometer.svg" className={styles.miniPicto} />: {weatherMaxTemp}°C</p>
-						<p className={styles.miniP}>Average<img alt="Neutral Thermometer Pictogram" src="/src/assets/pictogram/picto_neutralThermometer.svg" className={styles.miniPicto} />: {weatherMeanTemp}°C</p>
-						<p className={styles.miniP}>Current <img alt="Neutral Thermometer Pictogram" src="/src/assets/pictogram/picto_neutralThermometer.svg" className={styles.miniPicto} /> in Capital: {currentWeather}°C</p>
+						<p className={styles.miniP}><img alt="Cold Thermometer Pictogram" src={coldThermometer} className={styles.miniPicto} />: {weatherMinTemp}°C</p>
+						<p className={styles.miniP}><img alt="Hot Thermometer Pictogram" src={hotThermometer} className={styles.miniPicto} />: {weatherMaxTemp}°C</p>
+						<p className={styles.miniP}>Average<img alt="Neutral Thermometer Pictogram" src={neutralThermometer} className={styles.miniPicto} />: {weatherMeanTemp}°C</p>
+						<p className={styles.miniP}>Current <img alt="Neutral Thermometer Pictogram" src={neutralThermometer} className={styles.miniPicto} /> in Capital: {currentWeather}°C</p>
 					</div>
 					<div className={styles.secondPart}>
-						<p className={styles.miniP}>Has a seashore<img alt="Wave Pictogram" src="/src/assets/pictogram/picto_wave.svg" className={styles.miniPictoLL} />: {country.landlocked ? "No" : "Yes"}</p>
+						<p className={styles.miniP}>Has a seashore<img alt="Wave Pictogram" src={wavePicto} className={styles.miniPictoLL} />: {country.landlocked ? "No" : "Yes"}</p>
 						<p className={styles.miniP}><img alt="Currency Pictogram" src={mainCurrencyImage} className={styles.miniPicto} /> : {country.currencies}</p>
 						<p>Snowfall: {hasSnowfall ? "Yes" : "No"}</p>
 						<p>Rainy Days: {rainyDays.length}</p>
-						{/* 
-				https://library.wmo.int/viewer/54922/download?file=1203_fr.pdf&type=pdf&navigator=1
-				Page 14, 15
-			*/}
 						<p>Average Rain Per Day: {averageRainPerDay}mm</p>
 						<p>
-							<img alt="Google Pictogram" src="/src/assets/pictogram/picto_googleLocalisation.svg" className={styles.miniPicto} />:{" "}
+							<img alt="Google Pictogram" src={googleLocalisation} className={styles.miniPicto} />:{" "}
 							<a target="_blank" href={country.maps.googleMaps} rel="noreferrer" className={styles.linkColor}>
 								View
 							</a>
