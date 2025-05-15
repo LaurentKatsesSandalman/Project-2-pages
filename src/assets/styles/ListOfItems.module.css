@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainDiv{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.itemlistp{
+	text-align: center;
+	padding-top:0;
+	padding-bottom: 0;
+}

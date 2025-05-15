@@ -1,0 +1,38 @@
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	--primary-color: #9db3c1; /* background color */
+	--secondary-color: #374f59; /* text color (without section color)*/
+	--thirdary-color: #d7dee1; /* text color 2 */
+	--quaternary-color: #374f594d; /* background color of cards or hover button*/
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--primary-color);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	color: var(--primary-color);
+}
+
+h2 {
+	color: var(--primary-color);
+}
+h3 {
+	color: var(--primary-color);
+}
+
+html {
+	margin-bottom: 80px;
+}
